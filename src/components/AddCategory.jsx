@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 
 const AddCategory = ({ onNewCategory }) => {
   const [inputValue, setInputValue] = useState('');
+  const inputToLowerCase = inputValue.toLowerCase();
+  const word = inputToLowerCase.split(' ');
 
   const onInputChange = ({ target }) => {
     setInputValue(target.value);
   };
-
+  
   const onSubmit = (event) => {
     event.preventDefault();
-    const inputToLowerCase = inputValue.toLowerCase();
+    
     if (inputToLowerCase.trim().length <= 1) return;
-    const palabras = inputToLowerCase.split(' ');
-
-    for (let i = 0; i < palabras.length; i++) {
-      palabras[i] = palabras[i][0].toUpperCase() + palabras[i].substr(1);
-    }
+    
+    const capitalizedWord = word.map((palabra) => { 
+        return palabra[0].toUpperCase() + palabra.substring(1); 
+    }).join(" ");
 
     // setCategories((cat) => [inputValue, ...cat]);
-    onNewCategory(palabras.join(' '));
+    onNewCategory(capitalizedWord);
     setInputValue('');
   };
 
