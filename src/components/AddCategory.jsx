@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const AddCategory = ({ onNewCategory }) => {
   const [inputValue, setInputValue] = useState('');
   const inputToLowerCase = inputValue.toLowerCase();
-  const word = inputToLowerCase.split(' ');
+  const words = inputToLowerCase.split(' ');
 
   const onInputChange = ({ target }) => {
     setInputValue(target.value);
@@ -13,9 +13,9 @@ const AddCategory = ({ onNewCategory }) => {
     event.preventDefault();
     
     if (inputToLowerCase.trim().length <= 1) return;
-    
-    const capitalizedWord = word.map((palabra) => { 
-        return palabra[0].toUpperCase() + palabra.substring(1); 
+
+    const capitalizedWord = words.map((word) => { 
+        return word[0].toUpperCase() + word.substring(1); 
     }).join(" ");
 
     // setCategories((cat) => [inputValue, ...cat]);
