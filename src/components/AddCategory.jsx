@@ -9,16 +9,16 @@ const AddCategory = ({ onNewCategory }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-
-    if (inputValue.trim().length <= 1) return;
-    const palabras = inputValue.split(' ');
+    const inputToLowerCase = inputValue.toLowerCase();
+    if (inputToLowerCase.trim().length <= 1) return;
+    const palabras = inputToLowerCase.split(' ');
 
     for (let i = 0; i < palabras.length; i++) {
       palabras[i] = palabras[i][0].toUpperCase() + palabras[i].substr(1);
     }
-  
+
     // setCategories((cat) => [inputValue, ...cat]);
-    onNewCategory(palabras.join(" "))
+    onNewCategory(palabras.join(' '));
     setInputValue('');
   };
 
