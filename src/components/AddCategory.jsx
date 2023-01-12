@@ -18,7 +18,6 @@ const AddCategory = ({ onNewCategory }) => {
         return word[0].toUpperCase() + word.substring(1); 
     }).join(" ");
 
-    // setCategories((cat) => [inputValue, ...cat]);
     onNewCategory(capitalizedWord);
     setInputValue('');
   };
