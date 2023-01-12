@@ -14,7 +14,10 @@ body {
 
 h1 {
   font-size: 4rem;
-  margin-bottom: 10px;
+  letter-spacing: 0.3rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #c69c1e;
 }
 
 input {
@@ -33,8 +36,32 @@ h2 {
 }
 
 h3 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+  letter-spacing: 0.3rem;
+  font: bold 60px/1 arial;
+  margin: 10px;
+  text-align: center;
+  color: #c69c1e;
+  word-wrap: break-word;
+}
+
+h1, h3 {
+  text-shadow: 0 2px 0 #8b1515,
+    0 2px 0 #7c1313,
+    0 4px 0 #6e1111,
+    0 6px 0 #5f0e0e,
+    0 8px 0 #500c0c,
+    0 10px 0 #410a0a,
+    3px 8px 15px rgba(0, 0, 0, 0.1),
+    3px 8px 5px rgba(0, 0, 0, 0.3);
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  width: 80%;
 }
 
 .card-grid {
