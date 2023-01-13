@@ -8,9 +8,22 @@ describe('Pruebas en <AddCategory />', () => {
     //Extraccón del input
     const input = screen.getByRole('textbox');
     //Se dispara el evento
-    fireEvent.input(input, {target: {value: 'Saitama'}});
+    fireEvent.input(input, { target: { value: 'Saitama' } });
     //Se hace la acerción
-    expect(input.value).toBe('Saitama')
-    screen.debug();
+    expect(input.value).toBe('Saitama');
+  });
+
+  test('debe de llamar onNewCategory si el input tiene un valor', () => {
+    const inputValue = 'Saitama';
+
+    render(<AddCategory onNewCategory={() => {}} />);
+
+    const input = screen.getByRole('textbox');
+    const form = screen.getByRole('form');
+
+    fireEvent.input(input, { target: { value: inputValue } });
+    fireEvent.submit(form);
+
+    expect(input.value).toBe('');
   });
 });
