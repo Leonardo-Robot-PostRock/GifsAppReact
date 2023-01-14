@@ -40,11 +40,21 @@ describe('Pruebas en <AddCategory />', () => {
     const form = screen.getByRole('form');
     fireEvent.submit(form);
 
-    screen.debug()
-
     expect(onNewCategory).toHaveBeenCalledTimes(0);
     expect(onNewCategory).not.toHaveBeenCalled();
-    
+  });
 
+  test('llama onNewCategory con el inputValue capitalizado', () => {
+    const inputValue = 'harry poTTer';
+    const onNewCategory = jest.fn();
+
+    render(<AddCategory onNewCategory={onNewCategory} />);
+
+    const input = screen.getByRole('textbox');
+
+    fireEvent.change(input, { target: { value: inputValue } });
+    fireEvent.submit(input);
+
+    expect(onNewCategory).toHaveBeenLastCalledWith('Harry Potter')
   });
 });
