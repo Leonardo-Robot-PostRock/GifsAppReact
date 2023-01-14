@@ -51,9 +51,10 @@ describe('Pruebas en <AddCategory />', () => {
     render(<AddCategory onNewCategory={onNewCategory} />);
 
     const input = screen.getByRole('textbox');
-
+    const form = screen.getByRole('form');
+    
     fireEvent.change(input, { target: { value: inputValue } });
-    fireEvent.submit(input);
+    fireEvent.submit(form);
 
     expect(onNewCategory).toHaveBeenLastCalledWith('Harry Potter')
   });
